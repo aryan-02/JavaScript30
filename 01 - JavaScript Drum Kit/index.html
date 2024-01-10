@@ -61,7 +61,6 @@
 <script>
 	document.addEventListener("keydown", (event) => {
 		const c = event.keyCode;
-		console.log(c);
 		if([65, 83, 68, 70, 71, 72, 74, 75, 76].includes(c))
 		{
 			document.querySelector(`div [data-key="${c}"]`).classList.add("playing");
