@@ -60,12 +60,34 @@
 			background: black;
 			position: absolute;
 			top: 50%;
+			transform-origin: 100%;
+		}
+		
+		.hour-hand {
+			transform: scaleY(-50%);
 		}
 
 	</style>
 
 	<script>
+		setInterval(() => {
+			const date = new Date();
+			const time = date.getTime();
+			const h = date.getHours();
+			const m = date.getMinutes();
+			const s = date.getSeconds();
+			
+			const s_rot = 90 + 6 * s;
+			const m_rot = 90 + 6 * m;
+			const h_rot = 90 + (360 / 24) * h;
 
+			console.log(`${h}:${m}:${s}`)
+
+			document.querySelector(".hour-hand").style.transform = `rotate(${h_rot}deg) scaleX(50%)`;
+			document.querySelector(".min-hand").style.transform = `rotate(${m_rot}deg)`;
+			document.querySelector(".second-hand").style.transform = `rotate(${s_rot}deg) scaleY(70%)`;
+
+		}, 1000);
 
 	</script>
 </body>
